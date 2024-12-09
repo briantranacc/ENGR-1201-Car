@@ -82,7 +82,8 @@ void loop()
   
 
   // Main driving logic
-  if ((straightDistance > 25) && (fixedLeftDist > 20) && (fixedRightDist > 20)) 
+  // 28 cm because of the ~3 cm difference from the front of car to the sensor
+  if ((straightDistance > 28) && (fixedLeftDist > 25) && (fixedRightDist > 25)) 
   {
     if (currentSpeed < 180)
     {
@@ -92,7 +93,7 @@ void loop()
       forward(currentSpeed);
     }
   } 
-  else if ((fixedRightDist - fixedLeftDist) <= 3 && (fixedLeftDist - fixedRightDist) <= 3)
+  else if ((fixedRightDist - fixedLeftDist) <= 3 && (fixedLeftDist - fixedRightDist) <= 3))
   {
     forward(currentSpeed);
     Serial.println("close distances, going forward");
